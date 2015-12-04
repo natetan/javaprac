@@ -27,7 +27,7 @@ public static boolean isPalindrome(Queue<Integer> q) {
     }
     
     
-    // Rearranges the fucked up order
+    // Rearranges the messed up order
     for (int i = 0; i < size / 2; i++) {
         // since i did what i did in lines 22 and 23, the nums are in subsequent order, 162534
         q.enqueue(q.dequeue()); // separates queue and stack into b(654)f amd t(123)b respectfully
