@@ -1,22 +1,25 @@
-public static void switchPairs(Stack<Integer> s) {
-    Queue<Integer> q = new FIFOQueue<Integer>();
-    while (!s.isEmpty()) {
-        q.enqueue(s.pop());
-    }
-    while (!q.isEmpty()) {
-        s.push(q.dequeue());
-    }
-    while (!s.isEmpty()) {
-        q.enqueue(s.pop());
-    }
-    while (!q.isEmpty()) {
-        if (q.size() == 1) {
-            s.push(q.dequeue());
-            break;
-        }
-        int num1 = q.dequeue();
-        int num2 = q.dequeue();
-        s.push(num2);
-        s.push(num1);
-    }
+public static void switchPairs(Stack<Integer> s) {
+    if (s.size() > 1) {
+        Queue<Integer> q = new LinkedList<Integer>();
+        while (!s.isEmpty()) {
+            q.add(s.pop());
+        }
+        while (!q.isEmpty()) {
+            s.push(q.remove());
+        }
+        while (!s.isEmpty()) {
+            q.add(s.pop());
+        }
+        while (!q.isEmpty()) {
+            int prev = q.remove();
+            if (!q.isEmpty()) {
+                int current = q.remove();
+                // already backwards bc of the queue, so push them in 'regularly'
+                s.push(current);
+                s.push(prev);
+            } else {
+                s.push(prev);
+            }
+        }
+    }
 }
