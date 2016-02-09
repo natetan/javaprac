@@ -14,10 +14,9 @@ public static void switchPairs(Stack<Integer> s) {
             int prev = q.remove();
             if (!q.isEmpty()) {
                 int current = q.remove();
-                // already backwards bc of the queue, so push them in 'regularly'
                 s.push(current);
                 s.push(prev);
-            } else {
+            } else { // odd case
                 s.push(prev);
             }
         }
