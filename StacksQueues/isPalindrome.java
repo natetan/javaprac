@@ -1,3 +1,25 @@
+/* SECOND TIME SOLUTION*/
+public static boolean isPalindrome(Queue<Integer> q) {
+    Stack<Integer> s = new Stack<Integer>();
+    boolean ok = true;
+    int size = q.size();
+    for (int i = 0; i < size; i++) {
+        int num = q.remove();
+        q.add(num);
+        s.push(num);
+    }
+    while (!s.isEmpty()) {
+        int num1 = s.pop();
+        int num2 = q.remove();
+        q.add(num2);
+        if (num1 != num2) {
+            ok = false;
+        }
+    }
+    return ok;
+}
+
+/* FIRST EVER ATTEMPT. LOOKS BAD*/
 public static boolean isPalindrome(Queue<Integer> q) {
     if (q.size() < 2) {
         return true;
