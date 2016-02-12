@@ -1,25 +1,20 @@
-public static void reverseHalf(Queue<Inteter> q) {
-	// f[1 8 7 2 9 18 12 0]b
-	Stack<Integer> s = new Stack<Integer>();
-	int size = q.size() / 2;
-	for (int i = 0; i < size; i++) {
-		q.add(q.remove());
-		s.push(q.remove());
-	}
-	// size = 8;
-	// f[1 8 7 2 9 18 12 0]b
-	// t[]b
-
-	int 
+public static void reverseHalf(Queue<Integer> q) {
+    if (q.size() > 1) {
+        Stack<Integer> s = new Stack<Integer>();
+        int size = q.size();
+        for (int i = 0; i < size / 2; i++) {
+            q.add(q.remove());
+            s.push(q.remove());
+        }
+        if (size % 2 == 1) {
+            q.add(q.remove());
+        }
+        while (!s.isEmpty()) {
+            q.add(q.remove());
+            q.add(s.pop());
+        }
+        if (size % 2 == 1) {
+            q.add(q.remove());
+        }
+    }
 }
-
-/*
-
-[a] = 13
-n : 13
-j = 2; j < 13
-result = (a + i)
-[aa
-
-
-*/
