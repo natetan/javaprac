@@ -1,14 +1,14 @@
 public void removeLast(int n) {
 	int index = 0;
-	boolean exists = false;
+	boolean contains = false;
 	for (int i = 0; i < this.size; i++) {
 		if (elementData[i] == n) {
 			index = i;
-			exists = true;
+			contains = true;
 		}
 	}
 
-	if (exists) {
+	if (contains) {
 		for (int i = 0; i < this.size - 1; i++) {
 			if (index == i) {
 				elementData[i] = elementData[i + 1];
