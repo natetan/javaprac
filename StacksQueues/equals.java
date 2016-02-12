@@ -1,35 +1,25 @@
-// Checks if 2 stacks passed in are equal
-
-public boolean equals(Stack<Integer> s1, Stack<Integer> s2) {
-    Stack<Integer> s = new ArrayStack<Integer>();
-    boolean flag = true;
-    int count1 = 0;
-    int count2 = 0;
-    for (int n : s1) {
-        count1++;
-    }
-    for (int n : s2) {
-        count2++;
-    }
-    if (count1 != count2) {
-        flag = false;
+public static boolean equals(Stack<Integer> s1, Stack<Integer> s2) {
+    if (s1.size() != s2.size()) {
+        return false;
+        // can just say s1.size() == 0 since check above guarantees sizes r equal
+    } else if (s1.size() == 0 && s2.size() == 0) {
+        return true;
     } else {
+        boolean same = true;
+        Stack<Integer> s3 = new Stack<Integer>();
         while (!s1.isEmpty()) {
             int num1 = s1.pop();
             int num2 = s2.pop();
-            s.push(num1);
-            s.push(num2);
-        }
-        
-        while (!s.isEmpty()) {
-            int num2 = s.pop();
-            int num1 = s.pop();
             if (num1 != num2) {
-                flag = false;
+                same = false;
             }
-            s2.push(num2);
-            s1.push(num1);
+            s3.push(num1);
+            s3.push(num2);
         }
-    }
-    return flag;
+        while (!s3.isEmpty()) {
+            s2.push(s3.pop());
+            s1.push(s3.pop());
+        }
+        return same;
+    } 
 }
