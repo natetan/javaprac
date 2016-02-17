@@ -1,3 +1,7 @@
+public void removeFront() {
+	removeFront(1);
+}
+
 public void removeFront(int n) {
     for (int i = 0; i < this.size; i++) {
         elementData[i] = elementData[i + n];
