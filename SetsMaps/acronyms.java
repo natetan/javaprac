@@ -3,7 +3,7 @@ public Map<String, Set<List<String>>> acronyms(Set<List<String>> lists) {
 	for (List<String> list : lists) {
 		String acronym = this.acronymFor(list);
 		if (!map.containsKey(acronym)) {
-			map.put(acronym, new Set<List<String>>());
+			map.put(acronym, new HashSet<List<String>>());
 		}
 		map.get(acronym).add(list);
 	}
