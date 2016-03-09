@@ -1,3 +1,10 @@
+/* INCOMPLETE: for some reason, fails half the tests on practice it
+ * output seems like it should be matching correctly, but the problem
+ * on practice it seems inconsistent, where it uses the second list
+ * first while other examples use the first list first. 
+ * Inconsistency problems?
+ */
+
 public void takeSmallerFrom(LinkedIntList list2) {
 	if (this.front != null && list2.front != null) {
 		ListNode current = this.front;
