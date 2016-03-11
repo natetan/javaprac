@@ -1,4 +1,4 @@
-public static int recordDate(Map<String, LinkedList<String>>, String first, String second) {
+public static int recordDate(Map<String, List<String>>, String first, String second) {
 	if (!map.containsKey(first)) {
 		map.put(first, new LinkedList<String>());
 	} 
@@ -7,13 +7,12 @@ public static int recordDate(Map<String, LinkedList<String>>, String first, Stri
 	}
 	LinkedList list1 = map.get(first);
 	LinkedList list2 = map.get(second);
-	list1.front = new ListNode(second, list1.front);
-	list2.front = new ListNode(first, list2.front);
+	list1.add(second, 0);
+	list2.add(first, 0);
 	int count = 0;
 	LinkedList list = map.get(first);
-	ListNode current = list.front;
-	while (current != null) {
-		if (current.data.equals(second)) {
+	for (String name : list) {
+		if (name.equals(second)) {
 			count++;
 		}
 	}
