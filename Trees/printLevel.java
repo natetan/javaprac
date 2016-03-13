@@ -1,14 +1,17 @@
-public void printLevel(int n) {
-	this.printLevel(1, this.overallRoot, n);
+public void printLevel(int target) {
+    if (target < 1) {
+        throw new IllegalArgumentException();
+    }
+    this.printLevel(this.overallRoot, target, 1);
 }
 
-private void printLevel(int level, IntTreeNode root, int target) {
-	if (root != null && target != 0) {
-		if (level != target) {
-			this.printLevel(level + 1, root.left, target);
-			this.printLevel(level + 1, root.right, target);
-		} else {
-			System.out.print(root.data);
-		}
-	}
+private void printLevel(IntTreeNode root, int target, int level) {
+    if (root != null) {
+        if (target != level) {
+            this.printLevel(root.left, target, level + 1);
+            this.printLevel(root.right, target, level + 1);
+        } else {
+            System.out.println(root.data);
+        }
+    }
 }
