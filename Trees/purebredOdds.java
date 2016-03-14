@@ -1,5 +1,5 @@
 public int purebredOdds() {
-	return this.purebredOdds(this.overallROot);
+	return this.purebredOdds(this.overallRoot);
 }
 
 private int prebredOdds(IntTreeNode root) {

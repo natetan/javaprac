@@ -4,7 +4,7 @@ public static Map<Point, Integer> sumStrings(Map<String, Point> map) {
 		if (!newMap.containsKey(map.get(s))) {
 			newMap.put(map.get(s), s.length());
 		} else {
-			newMap.get(map.get(s)) += s.length();
+			newMap.put(map.get(s), newMap.get(map.get(s)) + s.length());
 		}
 	}
 	return newMap;

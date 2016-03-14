@@ -6,11 +6,11 @@ public int nodesAtLevels(int min, int max) {
 }
 
 private int nodesAtLevels(IntTreeNode root, int min, int max, int level) {
-	if (root != null) {
+	if (root != null && level > max) {
 		if (min < level) {
-			return this.nodesAtLevels(root.left, min + 1, max, level) + this.nodesAtLevels(root.right, min + 1, max, level);
+			return this.nodesAtLevels(root.left, min, max, level) + this.nodesAtLevels(root.right, min, max, level + 1);
 		} else {
-			return 1 + this.nodesAtLevels(root.left, min + 1, max, level) + this.nodesAtLevels(root.right, min + 1, max, level);
+			return 1 + this.nodesAtLevels(root.left, min, max, level) + this.nodesAtLevels(root.right, min, max, level + 1);
 		}
 	} else {
 		return 0;

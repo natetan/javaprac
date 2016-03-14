@@ -4,7 +4,7 @@ public static Map<Point, Integer> pointCount(List<Point> list) {
 		if (!map.containsKey(p)) {
 			map.put(p, 1);
 		} else {
-			map.get(p) += 1;
+			map.put(p, map.get(p) + 1);
 		}
 	}
 	return map;
