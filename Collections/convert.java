@@ -5,7 +5,7 @@ public static Map<String, Set<String>> convert(Set<String> set) {
 		if (!map.containsKey(prefix)) {
 			map.put(prefix, new TreeSet<String>());
 		}
-		String suffix = substring(4);
+		String suffix = s.substring(4);
 		map.get(prefix).add(suffix);
 	}
 	return map;
