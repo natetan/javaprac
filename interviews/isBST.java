@@ -8,6 +8,6 @@ private boolean iSBST(IntTreeNode root, int min, int max) {
 	} else if (root.data <= min || root.data >= max) {
 		return false;
 	} else {
-		return this.isBST(root.left, min, root.data) && this.isBST(root.right, max, root.data);
+		return this.isBST(root.left, min, root.data) && this.isBST(root.right, root.data, max);
 	}
 }
