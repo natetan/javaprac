@@ -12,26 +12,26 @@ public class Produce implements Comparable<Produce> {
 
 	public String toString() {
 		String result = "";
-		if (organic) {
+		if (this.organic) {
 			result += "*";
 		}
-		result += name + " ";
-		if (fruit) {
+		result += this.name + " ";
+		if (this.fruit) {
 			result += "(F) ";
 		}
-		result += "- " + weight + " lbs";
+		result += "- " + this.weight + " lbs";
 		return result;
 	}
 
 	public int compareTo(Produce other) {
-		if (organic && !other.organic) {
+		if (this.organic && !other.organic) {
 			return -1;
-		} else if (!organic && other.organic) {
+		} else if (!this.organic && other.organic) {
 			return 1;
-		} else if (!fruit && other.fruit) {
+		} else if (!this.fruit && other.fruit) {
 			return 1;
-		} else if (name.compareTo(other.name) != 0) {
-			return name.compareTo(other.name);
+		} else if (this.name.compareTo(other.name) != 0) {
+			return this.name.compareTo(other.name);
 		} else {
 			return (int)Math.signum(this.weight - other.weight);
 		}
