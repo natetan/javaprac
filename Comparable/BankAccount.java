@@ -56,6 +56,21 @@ public class BankAccount {
 		}
 	}
 
+	public void transfer(BankAccount other, double amount) {
+		if (this.balance >= 5 && amount > 0) {
+			this.balance -= 5;
+			if (amount > this.balance) {
+				other.balance += this.balance;
+				this.balance = 0;
+			} else {
+				other.balance += amount;
+				this.balance -= amount;
+			}
+			this.transactions++;
+			other.transactions++;
+		}
+	}
+
 	public String toString() {
 		String negative = "";
 		if (this.balance < 0) {
