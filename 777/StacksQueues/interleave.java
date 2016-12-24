@@ -1,15 +1,15 @@
 // practice 2
 // practice 18 08sp
 public void interleave(Queue<Integer> q) {
-    if(q.size() % 2 == 1) {
+	if(q.size() % 2 == 1) {
 		throw new IllegalArgumentException();
-	}  // after this point, we are guaranteed queue is even size
-	Stack<Integer> s = new ArrayStack<Integer>();
-	int size = q.size(); // temp for appropriate bounds
-	q2s(q,s);            // moves ALL contents to stack, contents reversed 
-	for(int i = 0; i < size / 2; i++) {     // reversed queue, add back HALF to queue
-		q.add(s.pop());
-	}                   // after this for loop, S.size = q.size, guaranteed
+		}  // after this point, we are guaranteed queue is even size
+		Stack<Integer> s = new ArrayStack<Integer>();
+		int size = q.size(); // temp for appropriate bounds
+		q2s(q,s);            // moves ALL contents to stack, contents reversed 
+		for(int i = 0; i < size / 2; i++) {     // reversed queue, add back HALF to queue
+			q.add(s.pop());
+		}                   // after this for loop, S.size = q.size, guaranteed
 
 	// the example given says consider 
 	// Consider the two halves of this list:
