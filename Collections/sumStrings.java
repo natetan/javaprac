@@ -9,4 +9,3 @@ public static Map<Point, Integer> sumStrings(Map<String, Point> map) {
 	}
 	return newMap;
 }
-
