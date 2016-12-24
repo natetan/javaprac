@@ -1,10 +1,10 @@
 public class Produce implements Comparable<Produce> {
-    public double weight;
+	public double weight;
 	public String name;
 	public boolean organic, fruit;
 
 	public Produce(double weight, String name, boolean organic, boolean fruit) {
-	    this.weight = weight;
+		this.weight = weight;
 		this.name = name;
 		this.organic = organic;
 		this.fruit = fruit;
