@@ -1,33 +1,26 @@
-public void interleave(Queue<Integer> q) {
-    if (q.size() % 2 == 1) {
-        throw new IllegalArgumentException();
-    }
-    int size = q.size();
-    Stack<Integer> s = new ArrayStack<Integer>();
-    for (int i = 0; i < size / 2; i++) {
-        s.push(q.dequeue());
-    }
-    while (!s.isEmpty()) {
-        q.enqueue(s.pop());
-    }
-    
-    for (int i = 0; i < size / 2; i++) {
-        s.push(q.dequeue());
-    }
-    while (!s.isEmpty()) {
-        q.enqueue(s.pop());
-    }
-    for (int i = 0; i < size / 2; i++) {
-        s.push(q.dequeue());
-    }
-    for (int i = 0; i < size / 2; i++) {
-        s.push(q.dequeue());
-    }
-    for (int i = 0; i < size / 2; i++) {
-        q.enqueue(s.pop());
-    }
-    for (int i = 0; i < size / 2; i++) {
-        q.enqueue(s.pop());
-        q.enqueue(q.dequeue());
-    }
+public static void interleave(Queue<Integer> q) {
+	if (q.size() % 2 != 0) {
+		throw new IllegalArgumentException();
+	}
+	Stack<Integer> s = new Stack<Integer>();
+	int size = q.size() / 2;
+	for (int i = 0; i < size; i++) {
+		q.add(q.remove());
+	}
+	for (int i = 0; i < size; i++) {
+		s.push(q.remove());
+	}
+	while (!s.isEmpty()) {
+		q.add(s.pop());
+	}
+	for (int i = 0; i < size; i++) {
+		q.add(q.remove());
+	}
+	for (int i = 0; i < size; i++) {
+		s.push(q.remove());
+	}
+	for (int i = 0; i < size; i++) {
+		q.add(q.remove());
+		q.add(s.pop());
+	}
 }
